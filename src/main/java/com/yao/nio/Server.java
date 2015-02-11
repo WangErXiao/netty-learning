@@ -74,7 +74,7 @@ public class Server {
                 ServerSocketChannel serverSocketChannel=(ServerSocketChannel)key.channel();
                 SocketChannel socketChannel=serverSocketChannel.accept();
                 socketChannel.configureBlocking(false);
-                socketChannel.register(selector, SelectionKey.OP_READ);
+                socketChannel.register(selector, SelectionKey.OP_READ|SelectionKey.OP_WRITE);
             }else if(key.isReadable()){
                 SocketChannel channel=(SocketChannel)key.channel();
                 ByteBuffer byteBuffer=ByteBuffer.allocate(2048);

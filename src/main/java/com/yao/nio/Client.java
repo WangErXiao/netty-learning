@@ -81,19 +81,19 @@ public class Client {
                 }
                 socketChannel.register(selector, SelectionKey.OP_WRITE);
                 try {
-                    TimeUnit.SECONDS.sleep(1);
+                    TimeUnit.MILLISECONDS.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }else if(key.isWritable()){
                 SocketChannel socketChannel=(SocketChannel)key.channel();
                 ByteBuffer buffer=ByteBuffer.allocate(1024);
-                buffer.put(("i send your " + new Random().nextInt(10) + "").getBytes());
+                buffer.put(("i send your " + new Random().nextInt(10) + Thread.currentThread().getId()).getBytes());
                 buffer.flip();
                 socketChannel.write(buffer);
                 socketChannel.register(selector, SelectionKey.OP_READ);
                 try {
-                    TimeUnit.SECONDS.sleep(1);
+                    TimeUnit.MILLISECONDS.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
