@@ -37,6 +37,7 @@ public class NettyNioServer {
                                             ctx.write(buf.duplicate())
                                                     .addListener(ChannelFutureListener.CLOSE);
                                             ctx.flush();
+
                                         }
                                     }
                             );
