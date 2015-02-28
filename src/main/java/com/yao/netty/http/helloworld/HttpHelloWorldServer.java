@@ -29,11 +29,9 @@ public class HttpHelloWorldServer {
                     .childHandler(new HttpHelloWorldServerInitializer());
 
             Channel ch = b.bind(PORT).sync().channel();
-
-            System.err.println("Open your web browser and navigate to " +
-                     "http" + "://127.0.0.1:" + PORT + '/');
-
+            System.err.println("begin------------");
             ch.closeFuture().sync();
+            System.err.println("end------------");
         } finally {
             bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
