@@ -13,12 +13,10 @@ import io.netty.handler.logging.LoggingHandler;
  */
 public class HexDumpProxy {
     static final int LOCAL_PORT = Integer.parseInt(System.getProperty("localPort", "8443"));
-    static final String REMOTE_HOST = System.getProperty("remoteHost", "www.baidu.com");
-    static final int REMOTE_PORT = Integer.parseInt(System.getProperty("remotePort", "80"));
-
+    static final String REMOTE_HOST = System.getProperty("remoteHost", "localhost");
+    static final int REMOTE_PORT = Integer.parseInt(System.getProperty("remotePort", "9999"));
     public static void main(String[] args) throws Exception {
         System.err.println("Proxying *:" + LOCAL_PORT + " to " + REMOTE_HOST + ':' + REMOTE_PORT + " ...");
-
         // Configure the bootstrap.
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
         EventLoopGroup workerGroup = new NioEventLoopGroup();
