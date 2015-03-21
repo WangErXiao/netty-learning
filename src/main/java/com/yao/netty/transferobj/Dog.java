@@ -1,9 +1,11 @@
 package com.yao.netty.transferobj;
 
+import java.io.Serializable;
+
 /**
  * Created by root on 15-3-7.
  */
-public class Dog {
+public class Dog implements Serializable {
     private String name;
     private Integer age;
 
